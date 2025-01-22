@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #222;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Rainbow Container */
+.rainbow-container {
+    position: relative;
+    width: 300px;
+    height: 150px;
+    overflow: hidden;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Rainbow Circle */
+.rainbow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: conic-gradient(
+        red, orange, yellow, green, blue, indigo, violet, red
+    );
+    border-radius: 50%;
+    animation: rotateRainbow 5s linear infinite, pulseGlow 2s infinite alternate;
+    filter: blur(5px);
+    opacity: 0;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+/* Rotation Animation */
+@keyframes rotateRainbow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Glow and Pulse Effect */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
+    100% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.5); }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
